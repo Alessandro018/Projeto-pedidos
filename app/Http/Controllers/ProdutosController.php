@@ -44,7 +44,18 @@ class ProdutosController extends Controller
     {
         if(auth()->check())
         {
-            return view('produtos.user');
+            $produtos = Produtos::where('user_id', auth()->user()->id)->simplePaginate(6);
+            return view('produtos.user', ['produtos' => $produtos]);
+        }
+    }
+
+    public function destroy($id)
+    {
+        if(auth()->check())
+        {
+            $questao = Produtos::find($id)->delete();
+            return redirect()->route('produtos.user')
+                ->with('success','Produto deletado com successo');
         }
     }
 }
