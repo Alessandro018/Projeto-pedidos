@@ -6,18 +6,12 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
     <title>{{ config('app.name', 'Laravel') }}</title>
-
-    <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-
-    <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
-    <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
@@ -41,6 +35,9 @@
                         <!-- Authentication Links -->
                         @if(Auth::check())
                             <li class="nav-item">
+                                <a class="nav-link" href="{{ action('ProdutosController@index') }}">{{ __('Produtos') }}</a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link" href="{{ action('ProdutosController@create') }}">{{ __('Cadastrar produtos') }}</a>
                             </li>
                         @endif
@@ -60,6 +57,7 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('produtos.index') }}">Meus Produtos</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

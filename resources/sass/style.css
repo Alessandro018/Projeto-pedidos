@@ -1,0 +1,12 @@
+div#app table
+{
+    width: 67%;
+    margin: auto;
+}
+table td
+{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: wrap;
+    max-width: 40px;
+}

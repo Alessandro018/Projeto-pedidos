@@ -11,7 +11,8 @@ class ProdutosController extends Controller
     {
         if(auth()->check())
         {
-            return view('produtos.index');
+            $produtos = Produtos::where('user_id', '!=', auth()->user()->id)->simplePaginate(6);
+            return view('produtos.index', ['produtos' => $produtos]);
         }
         return redirect()->route('login');
     }
@@ -36,6 +37,14 @@ class ProdutosController extends Controller
             ]);
             Produtos::create($request->all());
             return redirect()->route('produtos.index')->with('success','Produto cadastrado com sucesso');
+        }
+    }
+
+    public function meus_produtos()
+    {
+        if(auth()->check())
+        {
+            return view('produtos.user');
         }
     }
 }
