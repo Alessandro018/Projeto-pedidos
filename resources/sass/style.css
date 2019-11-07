@@ -10,3 +10,20 @@ table td
     white-space: wrap;
     max-width: 40px;
 }
+textarea
+{
+    resize: none;
+}
+td form span
+{
+    padding-right: 20px;
+}
+td form div.modal-body
+{
+    border-bottom:solid 1px #babaca;
+}
+td form input[type='number']
+{
+    width:50px; 
+    text-align:center;
+}

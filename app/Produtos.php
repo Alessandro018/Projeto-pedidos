@@ -14,4 +14,9 @@ class Produtos extends Model
         'descricao',
         'user_id'
     ];
+
+    public function solicitacoes()
+    {
+        return $this->hasMany('App\Solicitacoes', 'produto_id', 'id');
+    }
 }

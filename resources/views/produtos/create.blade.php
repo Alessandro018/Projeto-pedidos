@@ -27,7 +27,7 @@
         </div>
         <div class="form-group">
             <label>Descrição</label>
-            <textarea class="form-control" rows="3" name="descricao" maxlength="255" required ></textarea>
+            <textarea class="form-control" rows="3" name="descricao" maxlength="255"></textarea>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
             <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
