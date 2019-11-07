@@ -24,6 +24,10 @@ $ make conf
 ## Execução
 > Após a configuração do make conf,coloque no navegador : ```localhost:8000 ``` ou  ``` http://127.0.0.1:8000 ``` e você terá acesso ao nosso projeto.
 
+## Observações
+> - Na página "Produtos" exibi todos os produtos cadastrados EXCETO os seus. Se quiser ver seus produtos cadastrados, navegue até a aba "Meus produtos".
+> - A cada solicitação realizada a quantidade disponível do produto diminui, portanto, se a mesma for zero não será possível realizar uma solicitação do mesmo.
+
 ## Ferramentas
 - [Laravel](https://laravel.com) - PHP Framework
 - [Bootstrap](https://getbootstrap.com/) - CSS && HTML Framework
