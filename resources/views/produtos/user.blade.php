@@ -1,13 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
+
+    <h2 class="text-center">Meus produtos</h2><br>
     @if ($message = Session::get('success'))
         <div class="alert alert-success">
             {{ $message }}
         </div>
     @endif
-
-    <h2 class="text-center">Meus produtos</h2><br>
     <table class="table table-borderless">
         <thead>
             <tr>
@@ -40,6 +40,7 @@
                                     </div>
                                 </div>
                             </div>
+                        </form>
                     </td>
                 </tr>
             @endforeach    

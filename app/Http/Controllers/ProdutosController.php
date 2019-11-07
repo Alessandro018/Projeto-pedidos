@@ -32,12 +32,13 @@ class ProdutosController extends Controller
             $request->validate([
                 'nome' => 'required|min:4|max:60',
                 'quantidade' => 'required|min:0|max:5000|numeric',
-                'descricao' => 'max:255',
+                'descricao' => 'required|max:255',
                 'user_id' => 'required|numeric',
             ]);
             Produtos::create($request->all());
             return redirect()->route('meus_produtos')->with('success','Produto cadastrado com sucesso');
         }
+        return redirect()->route('login');
     }
 
     public function meus_produtos()
@@ -57,5 +58,6 @@ class ProdutosController extends Controller
             return redirect()->route('meus_produtos')
                 ->with('success','Produto deletado com successo');
         }
+        return redirect()->route('login');
     }
 }

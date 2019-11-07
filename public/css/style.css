@@ -10,6 +10,11 @@ table td
     white-space: wrap;
     max-width: 40px;
 }
+div.alert
+{
+    width: 67%;
+    margin: auto;
+}
 textarea
 {
     resize: none;
