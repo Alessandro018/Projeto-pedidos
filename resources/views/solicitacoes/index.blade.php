@@ -19,8 +19,10 @@
         <tbody>
             @foreach($solicitacoes as $solicitacao)
                 <tr>
-                    <td>{{ $solicitacao->produto->nome }}</td>
-                    <td>{{ $solicitacao->produto->descricao }}</td>
+                    @foreach($solicitacao->produto as $produto)
+                    <td>{{$produto->nome}}</td>
+                    <td>{{$produto->descricao}}</td>
+                    @endforeach
                     <td>{{ $solicitacao->quantidade }}</td>
                     <td>{{ $solicitacao->created_at }}</td>
                     <td>
@@ -49,5 +51,6 @@
             @endforeach    
         </tbody>
     </table>
+    {{$solicitacoes->links()}}
 
 @endsection

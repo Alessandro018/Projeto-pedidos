@@ -11,8 +11,7 @@ class SolicitacoesController extends Controller
     {
         if(auth()->check())
         {
-            $solicitacoes = Solicitacoes::with('produto')
-            ->where('user_id', auth()->user()->id)->simplePaginate(6);
+            $solicitacoes = Solicitacoes::where('user_id', auth()->user()->id)->simplePaginate(6);
             return view('solicitacoes.index', ['solicitacoes' => $solicitacoes]);
         }
         return redirect()->route('login');
@@ -28,7 +27,7 @@ class SolicitacoesController extends Controller
             if($produto->quantidade >=0)
             {
                 $produto->update();
-                return redirect()->route('solicitacoes.index');
+                return redirect()->route('solicitacoes.index')->with('success', 'Solicitação feita com sucesso');
             }
             return redirect()->back()->withErrors('Produto não disponível');
         }

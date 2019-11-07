@@ -17,6 +17,6 @@ class Solicitacoes extends Model
 
     public function produto()
     {
-        return $this->hasOne('App\Produtos', 'id', 'produto_id');
+        return $this->hasMany('App\Produtos', 'id', 'produto_id');
     }
 }
