@@ -50,11 +50,36 @@ class ProdutosController extends Controller
         }
     }
 
+    public function edit($id)
+    {
+        if(auth()->check())
+        {
+            $produto = Produtos::find($id);
+            return view('produtos.edit', ['produto'=> $produto]);
+        }
+    }
+
+    public function update(Request $request, $id)
+    {
+        if(auth()->check())
+        {
+            $produto = Produtos::find($id);
+            $request->validate([
+                'nome' => 'required|min:4|max:60',
+                'quantidade' => 'required|min:0|max:5000|numeric',
+                'descricao' => 'required|max:255',
+                'user_id' => 'required|numeric',
+            ]);
+            $produto->update($request->all());
+            return redirect()->route('meus_produtos')->with('success', 'Produto atualizado com sucesso');
+        }
+    }
+
     public function destroy($id)
     {
         if(auth()->check())
         {
-            $questao = Produtos::find($id)->delete();
+            Produtos::find($id)->delete();
             return redirect()->route('meus_produtos')
                 ->with('success','Produto deletado com successo');
         }

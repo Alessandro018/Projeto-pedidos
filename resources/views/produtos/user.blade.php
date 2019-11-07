@@ -21,6 +21,9 @@
                     <td>{{ $produto->nome }}</td>
                     <td>{{ $produto->descricao }}</td>
                     <td>
+                        <a class="btn btn-primary" href="{{ action('ProdutosController@edit',$produto->id) }}">Editar</a>
+                    </td>
+                    <td>
                         <form action="{{ action('ProdutosController@destroy',$produto->id) }}" id="delete"
                          method="POST">
                             @csrf
